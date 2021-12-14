@@ -13,7 +13,7 @@ public class DefaultReceiveMessageProcessor implements ReceiveMessageProcessor{
 
     @Override
     public String process(String data, String msgType) {
-        BaseMessageModel message = JacksonUtil.parse(data, BaseMessageModel.class);
+        BaseMessageModel message = JacksonUtil.parseXml(data, BaseMessageModel.class);
 
 
         NewsMessage msg = new NewsMessage();

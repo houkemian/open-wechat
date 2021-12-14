@@ -31,7 +31,7 @@ public class ReceiveMessageDispatcher implements ApplicationContextAware {
 
         ReceiveMessageProcessor processor;
 
-        BaseMessageModel messageModel = JacksonUtil.parse(data, BaseMessageModel.class);
+        BaseMessageModel messageModel = JacksonUtil.parseXml(data, BaseMessageModel.class);
         MessageType type = Optional.ofNullable(MessageType.of(messageModel.getMsgType())).orElseThrow(() -> new ValidationException("unknow msgtype"));
 
         try {

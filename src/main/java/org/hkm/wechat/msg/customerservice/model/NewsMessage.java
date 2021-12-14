@@ -4,8 +4,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Setter;
 import org.hkm.wechat.msg.BaseMessageModel;
 
 import java.util.List;
@@ -20,6 +22,7 @@ public class NewsMessage{
     private MessageModel news;
 
     @JsonProperty("msgtype")
+    @Setter(AccessLevel.NONE)
     private String msgType = "news";
 
 }

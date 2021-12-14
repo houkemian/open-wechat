@@ -21,7 +21,7 @@ public interface EventMessageProcessor extends ReceiveMessageProcessor, Applicat
     ApplicationContext getApplicationContext();
 
     default String process(String data, String msgType) {
-        EventMessageModel message = JacksonUtil.parse(data, EventMessageModel.class);
+        EventMessageModel message = JacksonUtil.parseXml(data, EventMessageModel.class);
         return dispatchEvent(message);
     }
 
