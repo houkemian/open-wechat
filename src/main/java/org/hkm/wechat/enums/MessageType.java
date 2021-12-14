@@ -1,6 +1,6 @@
 package org.hkm.wechat.enums;
 
-import org.hkm.wechat.msg.receive.model.BaseMessageModel;
+import org.hkm.wechat.msg.BaseMessageModel;
 import org.hkm.wechat.msg.receive.model.EventMessageModel;
 import org.hkm.wechat.msg.receive.model.normal.*;
 

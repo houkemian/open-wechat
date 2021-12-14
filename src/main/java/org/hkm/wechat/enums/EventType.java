@@ -1,10 +1,9 @@
 package org.hkm.wechat.enums;
 
-import org.hkm.wechat.msg.receive.model.BaseMessageModel;
+import org.hkm.wechat.msg.BaseMessageModel;
 import org.hkm.wechat.msg.receive.model.EventMessageModel;
 import org.hkm.wechat.msg.receive.model.event.*;
 import org.hkm.wechat.msg.receive.model.event.LocationMessage;
-import org.hkm.wechat.msg.receive.model.normal.*;
 
 public enum EventType {
 
@@ -12,7 +11,7 @@ public enum EventType {
     Location("location", LocationMessage.class, "eventLocationMessageProcessor"),
     Scan("scan", ScanMessage.class, "scanMessageProcessor"),
     Subscribe("subscribe", SubscribeMessage.class, "subscribeMessageProcessor"),
-    UnSubscribe("unSubscribe", UnSubscribeMessage.class, "unSubscribeMessageProcessor"),
+    UnSubscribe("unsubscribe", UnSubscribeMessage.class, "unSubscribeMessageProcessor"),
     View("view", ViewMessage.class, "viewMessageProcessor"),
     Default("default", EventMessageModel.class, "defaultEventMessageProcessor"),
     ;

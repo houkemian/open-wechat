@@ -1,6 +1,7 @@
 package org.hkm.wechat.msg.receive;
 
 import org.hkm.wechat.enums.MessageType;
+import org.hkm.wechat.msg.BaseMessageModel;
 import org.hkm.wechat.util.JacksonUtil;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.NoSuchBeanDefinitionException;
@@ -28,9 +29,10 @@ public class ReceiveMessageDispatcher implements ApplicationContextAware {
 
     public String process(String data) {
 
-        MessageType type = Optional.ofNullable(MessageType.of(JacksonUtil.get(data, "MsgType"))).orElseThrow(() -> new ValidationException("unknow msgtype"));
-
         ReceiveMessageProcessor processor;
+
+        BaseMessageModel messageModel = JacksonUtil.parse(data, BaseMessageModel.class);
+        MessageType type = Optional.ofNullable(MessageType.of(messageModel.getMsgType())).orElseThrow(() -> new ValidationException("unknow msgtype"));
 
         try {
             processor = this.applicationContext.getBean(type.getProcessorBean(), ReceiveMessageProcessor.class);

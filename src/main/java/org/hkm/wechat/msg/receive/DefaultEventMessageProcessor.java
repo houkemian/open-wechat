@@ -1,6 +1,8 @@
 package org.hkm.wechat.msg.receive;
 
+import org.hkm.wechat.msg.BaseMessageModel;
 import org.hkm.wechat.msg.receive.model.EventMessageModel;
+import org.hkm.wechat.msg.response.model.ImageMessage;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 
@@ -9,9 +11,13 @@ public class DefaultEventMessageProcessor implements EventMessageProcessor{
     private ApplicationContext applicationContext;
 
     @Override
-    public String handleEvent(EventMessageModel message) {
-        System.out.println(message.getFromUserName() + ":" + message.getEvent());
-        return message.getFromUserName();
+    public BaseMessageModel handleEvent(EventMessageModel message) {
+        ImageMessage response = new ImageMessage();
+        response.setImage("ED5N_zxaNuHeTEC-Pg6DQm4e58Zh529HkrjC30102-_jYff2da7QFcTr84kRZXWY");
+        response.setCreateTime(System.currentTimeMillis());
+        response.setFromUserName(message.getToUserName());
+        response.setToUserName(message.getFromUserName());
+        return response;
     }
 
     @Override
